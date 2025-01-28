@@ -4,17 +4,17 @@ variable "domain_name" {
 }
 
 variable "frontend_subdomain" {
-  description = "Subdomain for React.js frontend"
+  description = "Subdomain for  frontend"
   type        = string
 }
 
 variable "backend_subdomain" {
-  description = "Subdomain for Node.js backend API"
+  description = "Subdomain for  backend API"
   type        = string
 }
 
 variable "backend_service_url" {
-  description = "The backend service URL (e.g., http://nodejs-backend-service:3000)"
+  description = "The backend service"
   type        = string
 }
 
