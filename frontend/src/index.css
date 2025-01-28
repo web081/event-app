@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* font-family: "Source Serif 4", serif; */
+}
+.headFont {
+  font-family: "Source Serif 4", serif;
+}
+
+/* Custom placeholder styling */
+.custom-placeholder::placeholder {
+  color: #0e54cd; /* Placeholder color */
+  font-size: 0.875rem; /* Placeholder font size */
+  padding-left: 1rem; /* Placeholder padding */
+}
+
+/* Base font size for the entire application */
+html {
+  font-size: 16px; /* Default font size */
+}
+
+/* Small screens (e.g., mobile phones) */
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 16px; /* Smaller font size for small screens */
+  }
+}
+
+/* Medium screens (e.g., tablets) */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 16px; /* Default font size for medium screens */
+  }
+}
+
+/* Large screens (e.g., desktops) */
+@media screen and (min-width: 1025px) {
+  html {
+    font-size: 16px; /* Larger font size for big screens */
+  }
+}
+
+/* Apply relative font sizes to elements */
+body {
+  font-size: 1rem; /* 1rem will equal the font-size set on the html element */
+}
+
+table {
+  font-size: 0.875rem; /* Slightly smaller font for tables */
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+/* Custom Scrollbar for WebKit Browsers */
+::-webkit-scrollbar {
+  height: 6px; /* Adjust the height for horizontal scrollbar */
+  width: 6px; /* Adjust the width for vertical scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Custom color for the scrollbar thumb */
+  border-radius: 10px; /* Rounded edges */
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1); /* Track background color */
+}
+/* Hide scrollbar for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ReactQuill stylling */
+.quill-editor {
+  @apply relative w-full font-sans;
+  height: auto;
+}
+
+/* Editor Container */
+.quill-editor .ql-container {
+  @apply border-none font-sans text-base;
+  font-family: "Poppins", sans-serif;
+  height: auto !important;
+  min-height: 100px;
+}
+
+/* Editor Content Area */
+.quill-editor .ql-editor {
+  @apply p-4 text-gray-600 leading-normal;
+  min-height: 100px;
+  height: auto;
+  overflow-y: visible;
+}
+
+/* Responsive Font Sizes */
+@screen sm {
+  .quill-editor .ql-editor {
+    @apply text-sm;
+  }
+}
+
+@screen md {
+  .quill-editor .ql-editor {
+    @apply text-base;
+  }
+}
+
+@screen lg {
+  .quill-editor .ql-editor {
+    @apply text-base;
+  }
+}
+
+/* Typography Styles */
+.quill-editor .ql-editor p {
+  @apply mb-2;
+}
+
+.quill-editor .ql-editor h1 {
+  @apply text-2xl font-bold mb-4 font-serif;
+  font-family: "Source Serif 4", serif;
+}
+
+.quill-editor .ql-editor h2 {
+  @apply text-xl font-bold mb-3 font-serif;
+  font-family: "Source Serif 4", serif;
+}
+
+/* Lists with reduced spacing */
+.quill-editor .ql-editor ul,
+.quill-editor .ql-editor ol {
+  @apply pl-2 mb-2;
+}
+
+.quill-editor .ql-editor li {
+  @apply mb-1;
+}
+
+/* Placeholder */
+.quill-editor .ql-editor.ql-blank::before {
+  @apply text-blue-600 text-sm pl-4;
+  font-style: normal;
+  position: absolute;
+}
+
+/* Updated Toolbar Styles - Removed sticky positioning */
+.quill-editor .ql-toolbar {
+  @apply border-gray-200 bg-gray-50 rounded-t-lg p-2;
+  position: relative;
+}
+
+/* Other styles */
+.quill-editor .ql-toolbar button {
+  @apply hover:bg-gray-200 rounded;
+}
+
+.quill-editor .ql-editor a {
+  @apply text-blue-600 hover:text-blue-800 underline;
+}
+
+.quill-editor .ql-editor pre {
+  @apply bg-gray-100 rounded p-4 font-mono text-sm my-4;
+}
+
+.quill-editor .ql-editor blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic my-4;
+}
+
+/* Updated Comment box styles */
+.comment-box {
+  @apply relative w-full;
+  height: auto;
+  overflow: visible;
+}
+
+/* TRY */
