@@ -9,8 +9,8 @@ pipeline {
         IMAGE_TAG = "${GIT_COMMIT}" // Git commit hash as image tag
         EKS_CLUSTER_NAME = 'invite-secure-eks-cluster' // EKS cluster name
         KUBE_CONFIG_PATH = "${HOME}/.kube/config" // Path to kubeconfig
-        DOCKER_COMPOSE_PATH = 'docker-compose.yml' // Path to Docker Compose file
-        SCANNER_HOME = tool 'sonar-scanner' // SonarQube Scanner Path
+        DOCKER_COMPOSE_PATH = './docker-compose.yml' // Path to Docker Compose file
+        SCANNER_HOME = tool 'sonar-scanner' // SonarQube Scanner tools path
     }
 
     stages {
