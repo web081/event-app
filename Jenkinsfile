@@ -177,6 +177,9 @@ pipeline {
                             sh 'kubectl apply -f hpa-frontend.yaml'
                             sh 'kubectl apply -f network-policy-backend.yaml'
                             sh 'kubectl apply -f network-policy-frontend.yaml'
+                            sh 'kubectl apply -f pom-deploy.yaml'
+                            sh 'kubectl apply -f grafana-deployment.yaml'
+                            sh 'kubectl apply -f fluent-deploy.yaml'
                         }
                     }
                 }
