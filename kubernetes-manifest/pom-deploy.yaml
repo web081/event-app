@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: prom/prometheus:latest # prometheus docker images
+        image: prom/prometheus:latest # prometheus offical docker images
         ports:
         - containerPort: 9090
         volumeMounts:

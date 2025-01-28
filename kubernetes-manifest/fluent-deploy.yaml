@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: fluent-bit
-        image: amazon/aws-for-fluent-bit:latest
+        image: amazon/aws-for-fluent-bit:latest # aws fluent offical docker image
         env:
         - name: AWS_REGION
           value: "us-east-1" 
         - name: OPENSEARCH_HOST
-          value: "https://your-opensearch-endpoint" # Replace with correct OpenSearch endpoint for logs
+          value: "https://your-opensearch-endpoint" # change correct OpenSearch endpoint for logs
         - name: OPENSEARCH_PORT
           value: "443"
