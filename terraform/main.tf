@@ -40,14 +40,15 @@ module "alb" {
 }
 
 module "route53_apigateway" {
-  source             = "./modules/route53_apigateway"
-  domain_name        = "event.com" # replace with available domain name
-  frontend_subdomain = "front.event.com" # create Subdomain from available domain name
-  backend_subdomain  = "api.event.com" # backend api to connect to frontend
+  source              = "./modules/route53_apigateway"
+  domain_name         = "event.com"
+  frontend_subdomain  = "front.event.com"
+  backend_subdomain   = "api.event.com"
   backend_service_url = "http://backend-service.default.svc.cluster.local:3000"
-  vpc_id             = "module.vpc.vpc_id"
-  alb_dns_name        = module.alb.dns_name
-  alb_zone_id         = module.alb.zone_id
+  vpc_id             = module.vpc.vpc_id  # Remove quotes
+  alb_dns_name       = module.alb.dns_name
+  alb_zone_id        = module.alb.zone_id
+  route53_zone_id    = var.route53_zone_id
 }
 
 output "eks_cluster_endpoint" {

@@ -5,7 +5,7 @@
 
 # Subdomain Record for Frontend
 resource "aws_route53_record" "frontend" {
-  zone_id = var.route53_zone_id
+  zone_id = var.alb_zone_id
   name    = var.frontend_subdomain
   type    = "A"
   alias {
@@ -15,14 +15,16 @@ resource "aws_route53_record" "frontend" {
   }
 }
 
-
 # API Gateway (Backend)
 resource "aws_route53_record" "backend" {
-  zone_id = aws_route53_zone_id
+  zone_id = var.alb_zone_id
   name    = var.backend_subdomain
-  type    = "CNAME"
-  ttl     = 60
-  records = [aws_api_gateway_rest_api.backend.id]
+  type    = "A"
+  alias {
+    name                   = aws_api_gateway_stage.prod.invoke_url
+    zone_id                = var.alb_zone_id
+    evaluate_target_health = true
+  }
 }
 
 # API Gateway
