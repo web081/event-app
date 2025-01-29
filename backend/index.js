@@ -122,7 +122,7 @@
 // });
 
 // module.exports = app;
-
+const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager'); [2, 3, 5]
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
@@ -309,6 +309,19 @@ app.post("/api/geocode", async (req, res) => {
       .json({ error: "Internal server error", details: error.message });
   }
 });
+// aws secuity manager access
+
+const secretsManager = new SecretsManagerClient({ region: 'us-east-1' }); // Replace with your desired region
+ async function getSecret(secretName) {
+
+  const command = new GetSecretValueCommand({ SecretId: secretName });
+
+  const data = await secretsManager.send(command);
+
+  return JSON.parse(data.SecretString);
+
+ }
+
 
 // Error handling middleware
 app.use(errorHandlingMiddleware);
